@@ -5,22 +5,21 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog';
 
 interface Props {
-  description: string;
-  isOpen: boolean;
   onClose: () => void;
+  isOpen: boolean;
   title: string;
+  description: string;
   children?: React.ReactNode;
 }
 
 const Modal: FC<Props> = ({
-  description,
-  isOpen,
   onClose,
+  isOpen,
   title,
+  description,
   children,
 }) => {
   const onChange = (open: boolean) => {

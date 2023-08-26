@@ -11,18 +11,17 @@ datasource db {
   relationMode = "prisma"
 }
 
-// model Store {
-//   id String @id @default(uuid())
-//   name String @unique
-//   userId String @unique
-//   // billboards Billboard @relation(fields: [name], references: [id])
-// }
+model Store {
+  id String @id @default(uuid())
+  userId String
+  name String @unique
+  products Product[]
+}
 
-// model Billboard {
-//   id String @id @default(uuid())
-//   billboard Store @relation(fields: [title], references: [name])
-//   title String @unique
-// }
-
-// we need category, product, order, orderitem, size, color, image
-// ? store billboard
+model Product {
+  id String @id @default(uuid())
+  name String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  storeName Store @relation(fields: [name], references: [id])
+}

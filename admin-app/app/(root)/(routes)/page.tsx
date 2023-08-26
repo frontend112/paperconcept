@@ -1,8 +1,9 @@
 "use client"
 
-import StoreModal from "@/components/modals/store-modal"
+// import StoreModal from "@/components/modals/store-modal"
 import { UseStoreModal } from "@/hooks/use-store-modal"
 import { useEffect } from "react"
+import { prismadb } from "@/lib/prismadb"
 
 const Root = () => {
   const onOpen = UseStoreModal(state => state.onOpen)
@@ -14,12 +15,7 @@ const Root = () => {
     }
   }, [isOpen, onOpen])
 
-  return (
-    <div className="p4">
-      {/* <StoreModal /> */}
-      Root page
-    </div>
-  )
+  return null;
 }
 
 export default Root;
